@@ -1,0 +1,56 @@
+name: CI-CD Actions
+run-name: Deploy to ${{inputs.deploy_target}} by ${{github.actor}}
+on: 
+  push:
+    branches:
+      - "main"
+      - "on-push-event"
+
+jobs:
+  es-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check es-build ${{ vars.DOTRUNGKIEN }} 
+        run:  echo NODE_VERSION ${{ vars.dtk_variables }} ${{ secrets.DOTRUNGKIEN }} z $SECRET 33 $KIEN ${{ vars.DTK }}${{ vars.KIEN }}
+        env:
+          KIEN: ${{ vars.dtk_variables }}
+          SECRET: ${{ secrets.DOTRUNGKIEN }}
+  # es-lint:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v2
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '16.16.0'
+
+  #     - name: Install package 
+  #       run: npm install
+      
+  #     - name: Check es-lint 
+  #       run: npm run lint
+  # es-build:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Check es-build a
+  #       run:  echo "NODE_VERSION ${{vars.DTK}} ${{vars.NODE_VERSION.CONST}} ${{vars.CONST}}"
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v2
+
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '16.16.0'
+      
+  #     - name: Install package 
+  #       run: npm install
+      
+  #     - name: Check es-build 
+  #       run:  npm run build &&
+  #             echo "NODE_VERSION ${{vars.DTK}} ${{vars.NODE_VERSION.CONST}} ${{vars.CONST}}"
+  
